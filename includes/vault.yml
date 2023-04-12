@@ -9,9 +9,9 @@
       cat <<EOF > vault.env
       NEXUS_PASSWORD=`vault kv get -field=NEXUS_PASSWORD forge-dso/${CI_PROJECT_NAMESPACE}/NEXUS`
       NEXUS_USERNAME=`vault kv get -field=NEXUS_USERNAME forge-dso/${CI_PROJECT_NAMESPACE}/NEXUS`
-      REGISRY_TOKEN=`vault kv get -field=TOKEN forge-dso/${CI_PROJECT_NAMESPACE}/REGISRY`
-      REGISRY_USERNAME=`vault kv get -field=USERNAME forge-dso/${CI_PROJECT_NAMESPACE}/REGISRY`
-      REGISRY_HOST=`vault kv get -field=HOST forge-dso/${CI_PROJECT_NAMESPACE}/REGISRY`
+      REGISRY_TOKEN=`vault kv get -field=TOKEN forge-dso/${CI_PROJECT_NAMESPACE}/REGISTRY`
+      REGISRY_USERNAME=`vault kv get -field=USERNAME forge-dso/${CI_PROJECT_NAMESPACE}/REGISTRY`
+      REGISRY_HOST=`vault kv get -field=HOST forge-dso/${CI_PROJECT_NAMESPACE}/REGISTRY`
       SONAR_TOKEN=`vault kv get -field=SONAR_TOKEN forge-dso/${CI_PROJECT_NAMESPACE}/SONAR`
       PROJECT_PATH=$PROJECT_PATH
       EOF
