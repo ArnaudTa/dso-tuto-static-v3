@@ -21,8 +21,7 @@ variables:
   TAG: "${CI_COMMIT_REF_SLUG}"
   DOCKERFILE: Dockerfile
   REGISTRY_URL: "${QUAY_ROOT_URL}/${PROJECT_PATH}"
-
-
+  
 stages:
   - read-secret
   - docker-build
