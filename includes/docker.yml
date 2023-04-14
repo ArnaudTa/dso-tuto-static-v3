@@ -4,5 +4,11 @@
     entrypoint: [""]
   script:
     - mkdir -p /kaniko/.docker
-    - echo "$DOCKER_CONFIG" > /kaniko/.docker/config.json
-    - /kaniko/executor --context="$CI_PROJECT_DIR/$WORKING_DIR" --dockerfile="$CI_PROJECT_DIR/$WORKING_DIR/$DOCKERFILE" --destination $REGISTRY_HOST/$IMAGE_NAME:$TAG
+    - echo $DOCKER_AUTH > /kaniko/.docker/config.json
+    - export IMAGE_TAG="$IMAGE_REPOSITORY/$IMAGE_NAME:$TAG"
+
+    - ls -al /kaniko/.docker/
+    - cat /kaniko/.docker/config.json
+    - env | sort
+
+    - /kaniko/executor --context="$CI_PROJECT_DIR/$WORKING_DIR" --dockerfile="$CI_PROJECT_DIR/$WORKING_DIR/$DOCKERFILE" --destination "$IMAGE_TAG"
